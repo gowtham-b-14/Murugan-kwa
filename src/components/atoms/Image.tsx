@@ -3,6 +3,7 @@ import {
   Image as RNImage,
   ImageProps as RNImageProps,
   View,
+  Text,
   ActivityIndicator,
   ImageStyle,
   ViewStyle,
@@ -42,6 +43,21 @@ export const Image: React.FC<ImageProps> = ({
     ...(style as ImageStyle),
   };
 
+  const ErrorView = () => (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f3f4f6',
+      }}
+    >
+      <Text style={{ fontSize: 12, color: '#9ca3af' }}>
+        Failed to load image
+      </Text>
+    </View>
+  );
+
   return (
     <View style={containerStyle}>
       {loading && (
@@ -73,21 +89,8 @@ export const Image: React.FC<ImageProps> = ({
           accessibilityRole="image"
         />
       ) : (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#f3f4f6',
-          }}
-        >
-          <Typography variant="caption" color="muted">
-            Failed to load image
-          </Typography>
-        </View>
+        <ErrorView />
       )}
     </View>
   );
 };
-
-import { Typography } from './Typography';
