@@ -10,7 +10,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type RootStackParamList = {
   Home: undefined;
-  ProductDetail: undefined;
+  ProductListing: undefined;
+  ProductDetail: { productId?: string };
 };
 
 type HomeScreenProps = {
@@ -23,12 +24,12 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
       <View style={styles.content}>
         <Text style={styles.title}>Welcome to KnitWell</Text>
         <Text style={styles.subtitle}>Discover our elegant collection</Text>
-        
+
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('ProductDetail')}
+          onPress={() => navigation.navigate('ProductListing')}
         >
-          <Text style={styles.buttonText}>View Product Details</Text>
+          <Text style={styles.buttonText}>Shop Now</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

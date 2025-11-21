@@ -14,7 +14,8 @@ import Svg, { Path } from 'react-native-svg';
 
 type RootStackParamList = {
   Home: undefined;
-  ProductDetail: undefined;
+  ProductListing: undefined;
+  ProductDetail: { productId?: string };
 };
 
 type ProductDetailScreenProps = {
